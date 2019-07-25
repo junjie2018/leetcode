@@ -7,8 +7,8 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(new Solution().largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3}));
-//        System.out.println(new Solution().largestRectangleArea(new int[]{5, 4, 1, 2}));
+//        System.out.println(new Solution3().largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3}));
+        System.out.println(new Solution().largestRectangleArea(new int[]{5, 4, 1, 2}));
     }
 }
 
@@ -99,5 +99,38 @@ class Solution2 {
         }
 
         return maxValue;
+    }
+}
+
+class Solution3 {
+    public int largestRectangleArea(int[] heights) {
+
+        if (heights.length == 0) {
+            return 0;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+
+        int max = 0;
+        for (int i = 0; i < heights.length; i++) {
+            int topIdx = stack.peek(), curIdx = i;
+
+            while (topIdx > -1 && heights[curIdx] <= heights[topIdx]) {
+                stack.pop();
+
+                max = Math.max(max, heights[topIdx] * (curIdx - stack.peek() - 1));
+
+                topIdx = stack.peek();
+            }
+
+            stack.push(curIdx);
+        }
+
+        while (stack.peek() != -1) {
+            max = Math.max(max, heights[stack.pop()] * (heights.length - stack.peek() - 1));
+        }
+
+        return max;
     }
 }

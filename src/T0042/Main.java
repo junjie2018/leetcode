@@ -1,8 +1,12 @@
 package T0042;
 
+import java.util.Stack;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println(new Solution3().trap(new int[]{2, 0, 2}));
+        System.out.println(new Solution5().trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+//        System.out.println(new Solution4().trap(new int[]{2, 0, 2}));
+//        System.out.println(new Solution5().trap(new int[]{5, 2, 1, 2, 1, 5}));
     }
 }
 
@@ -102,3 +106,77 @@ class Solution3 {
         return sum;
     }
 }
+
+class Solution4 {
+    public int trap(int[] height) {
+        if (height == null || height.length == 0) {
+            return 0;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+
+        int sum = 0;
+        for (int i = 1; i < height.length; i++) {
+            int topIdx = stack.peek();
+            int topHeight = height[topIdx];
+            int curHeight = height[i];
+
+            while (curHeight > topHeight) {
+                stack.pop();
+
+                if (stack.isEmpty()) {
+                    topHeight = Integer.MAX_VALUE;
+                    break;
+                }
+
+                sum += (Math.min(curHeight, height[stack.peek()]) - topHeight) * (i - stack.peek() - 1);
+
+                topIdx = stack.peek();
+                topHeight = height[topIdx];
+            }
+
+            if (curHeight == topHeight) {
+                stack.pop();
+                stack.push(i);
+            }
+
+            if (curHeight < topHeight) {
+                stack.push(i);
+            }
+        }
+
+        return sum;
+    }
+}
+
+class Solution5 {
+    public int trap(int[] height) {
+        if (height == null || height.length == 0) {
+            return 0;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+
+        int sum = 0;
+        for (int i = 0; i < height.length; i++) {
+
+            while (!stack.isEmpty() && height[i] >= height[stack.peek()]) {
+
+                int topIdx = stack.pop();
+
+                if(stack.isEmpty()){
+                    break;
+                }
+
+                sum += (Math.min(height[i], height[stack.peek()]) - height[topIdx]) * (i - stack.peek() - 1);
+
+            }
+
+            stack.push(i);
+        }
+
+        return sum;
+    }
+}
+
