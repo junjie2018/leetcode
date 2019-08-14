@@ -1,4 +1,4 @@
-package T01054;
+package T1054;
 
 import java.util.*;
 
