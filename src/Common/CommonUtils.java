@@ -1,6 +1,8 @@
 package Common;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CommonUtils {
@@ -62,16 +64,24 @@ public class CommonUtils {
     }
 
     public static int[][] create2s(String input) {
+//        String input = "[[1,2,3],[4,5,6],[7,8,9],[10,11,12],[13,14,15]]";
 
-        Pattern r = Pattern.compile("[.*]");
+        Pattern outer = Pattern.compile("^\\[(.*)\\]$");
+        Pattern inner = Pattern.compile("(\\[[^\\]]*\\])*,?");
 
-        input = input.substring(1, input.length() - 1);
-        String[] nums = input.split(",");
+        Matcher outMatcher = outer.matcher(input);
 
-        int[][] result = new int[nums.length][];
-        for (int i = 0; i < nums.length; i++) {
-            result[i] = create(nums[i]);
+        int idx = 0;
+        int[][] tmpResult = new int[1000][];
+        if (outMatcher.find()) {
+            String outerStr = outMatcher.group(1);
+            Matcher innerMatcher = inner.matcher(outerStr);
+            while (innerMatcher.find()) {
+                String innerStr = innerMatcher.group(1);
+                if (innerStr != null) tmpResult[idx++] = create(innerStr);
+            }
         }
-        return result;
+
+        return Arrays.copyOf(tmpResult, idx);
     }
 }
