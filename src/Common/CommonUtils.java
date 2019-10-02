@@ -33,6 +33,10 @@ public class CommonUtils {
         System.out.println(Arrays.toString(arrays));
     }
 
+    public static void show(int[] array) {
+        System.out.println(Arrays.toString(array));
+    }
+
     public static ListNode create(int[] array) {
         ListNode head = new ListNode(-1);
         ListNode curNode = head;
