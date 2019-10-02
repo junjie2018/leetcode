@@ -84,4 +84,16 @@ public class CommonUtils {
 
         return Arrays.copyOf(tmpResult, idx);
     }
+
+    public static ListNode createL(String input) {
+        String[] inputStrs = input.split("->");
+
+        ListNode dummy = new ListNode(-1);
+        ListNode head = dummy;
+        for (String inputStr : inputStrs) {
+            head.next = new ListNode(Integer.valueOf(inputStr.trim()));
+            head = head.next;
+        }
+        return dummy.next;
+    }
 }
