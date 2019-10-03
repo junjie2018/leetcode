@@ -11,9 +11,9 @@ public class Main {
 
 class Solution {
 
-    int[] weights;
-    int sum;
-    Random rand;
+    private int[] weights;
+    private int sum;
+    private Random rand;
 
     public Solution(int[] w) {
         this.weights = new int[w.length];

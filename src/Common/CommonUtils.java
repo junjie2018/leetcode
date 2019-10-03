@@ -67,6 +67,18 @@ public class CommonUtils {
         return result;
     }
 
+    public static char[] createC(String input) {
+        input = input.replace('[', ' ');
+        input = input.replace(']', ' ');
+        String[] chars = input.split(",");
+
+        char[] result = new char[chars.length];
+        for (int i = 0; i < chars.length; i++) {
+            result[i] = chars[i].trim().toCharArray()[1];
+        }
+        return result;
+    }
+
     public static int[][] create2s(String input) {
 //        String input = "[[1,2,3],[4,5,6],[7,8,9],[10,11,12],[13,14,15]]";
 
