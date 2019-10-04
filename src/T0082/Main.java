@@ -5,8 +5,8 @@ import Common.ListNode;
 
 public class Main {
     public static void main(String[] args) {
-//        new Solution().deleteDuplicates(CommonUtils.create(new int[]{1, 2, 3, 3, 4, 4, 5}));
-        new Solution().deleteDuplicates(CommonUtils.create(new int[]{1, 1}));
+//        new Solution().deleteDuplicates(CommonUtils.createInt1a(new int[]{1, 2, 3, 3, 4, 4, 5}));
+        new Solution().deleteDuplicates(CommonUtils.createListNode(new int[]{1, 1}));
     }
 }
 

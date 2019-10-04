@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(new Solution2().permute(CommonUtils.create("[1,2,3]")));
+        System.out.println(new Solution2().permute(CommonUtils.createInt1a("[1,2,3]")));
     }
 }
 

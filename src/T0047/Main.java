@@ -3,13 +3,12 @@ package T0047;
 import Common.CommonUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(new Solution().permuteUnique(CommonUtils.create("[2,2,1,1]")));
+        System.out.println(new Solution().permuteUnique(CommonUtils.createInt1a("[2,2,1,1]")));
     }
 }
 

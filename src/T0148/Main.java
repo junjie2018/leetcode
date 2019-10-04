@@ -5,7 +5,7 @@ import Common.ListNode;
 
 public class Main {
     public static void main(String[] args) {
-        new Solution().sortList(CommonUtils.createL("4->2->1->3"));
+        new Solution().sortList(CommonUtils.createListNode("4->2->1->3"));
     }
 }
 

@@ -8,13 +8,13 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         new Solution2().corpFlightBookings(
-                CommonUtils.create2s("[[1,2,10],[2,3,20],[2,5,25]]"),
+                CommonUtils.createInt2a("[[1,2,10],[2,3,20],[2,5,25]]"),
                 5
                 /*
                     [[2,2,30],[2,2,45]]
                     2
                  */
-//                CommonUtils.create2s("[[2,2,30],[2,2,45]]"),
+//                CommonUtils.createInt2a("[[2,2,30],[2,2,45]]"),
 //                2
         );
     }

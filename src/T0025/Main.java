@@ -5,7 +5,7 @@ import Common.CommonUtils;
 
 public class Main {
     public static void main(String[] args) {
-        ListNode head = CommonUtils.create(new int[]{1, 2, 3, 4, 5});
+        ListNode head = CommonUtils.createListNode(new int[]{1, 2, 3, 4, 5});
         CommonUtils.show(new Solution2().reverseKGroup(head, 3));
     }
 }

@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(new Solution().canFinish(2, CommonUtils.create2s("[[1,0]]")));
+        System.out.println(new Solution().canFinish(2, CommonUtils.createInt2a("[[1,0]]")));
     }
 }
 

@@ -4,7 +4,7 @@ import Common.CommonUtils;
 
 public class Main {
     public static void main(String[] args) {
-        CommonUtils.show(new Solution().maxSlidingWindow(CommonUtils.create("[1,3,-1,-3,5,3,6,7]"), 3));
+        CommonUtils.show(new Solution().maxSlidingWindow(CommonUtils.createInt1a("[1,3,-1,-3,5,3,6,7]"), 3));
     }
 }
 

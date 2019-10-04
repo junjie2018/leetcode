@@ -5,7 +5,7 @@ import Common.CommonUtils;
 
 public class Main {
     public static void main(String[] args) {
-        CommonUtils.show(new Solution().rotateRight(CommonUtils.create(new int[]{1}), 1));
+        CommonUtils.show(new Solution().rotateRight(CommonUtils.createListNode(new int[]{1}), 1));
     }
 }
 

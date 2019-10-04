@@ -7,8 +7,8 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         CommonUtils.show(new Solution().intervalIntersection(
-                CommonUtils.create2s("[[0,2],[5,10],[13,23],[24,25]]"),
-                CommonUtils.create2s("[[1,5],[8,12],[15,24],[25,26]]")
+                CommonUtils.createInt2a("[[0,2],[5,10],[13,23],[24,25]]"),
+                CommonUtils.createInt2a("[[1,5],[8,12],[15,24],[25,26]]")
         ));
     }
 }

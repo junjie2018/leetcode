@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        new Solution(CommonUtils.create("[1,2,3,3,3]")).pick(3);
+        new Solution(CommonUtils.createInt1a("[1,2,3,3,3]")).pick(3);
     }
 }
 

@@ -4,8 +4,8 @@ import Common.CommonUtils;
 
 public class Main {
     public static void main(String[] args) {
-        new Solution().subarraysDivByK(CommonUtils.create("[4,5,0,-2,-3,1]"), 5);
-//        new Solution().subarraysDivByK(CommonUtils.create("[0,-5]"), 10);
+        new Solution().subarraysDivByK(CommonUtils.createInt1a("[4,5,0,-2,-3,1]"), 5);
+//        new Solution().subarraysDivByK(CommonUtils.createInt1a("[0,-5]"), 10);
     }
 }
 

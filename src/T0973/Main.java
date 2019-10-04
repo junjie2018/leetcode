@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        new Solution().kClosest(CommonUtils.create2s("[[1,3],[-2,2]]"), 2);
+        new Solution().kClosest(CommonUtils.createInt2a("[[1,3],[-2,2]]"), 2);
     }
 }
 

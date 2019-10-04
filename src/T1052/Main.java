@@ -2,33 +2,31 @@ package T1052;
 
 import Common.CommonUtils;
 
-import javax.xml.ws.soap.Addressing;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println(
                 new Solution().maxSatisfied(
-//                        CommonUtils.create("[1,0,1,2,1,1,7,5]"),
-//                        CommonUtils.create("[0,1,0,1,0,1,0,1]"),
+//                        CommonUtils.createInt1a("[1,0,1,2,1,1,7,5]"),
+//                        CommonUtils.createInt1a("[0,1,0,1,0,1,0,1]"),
 //                        3
                         /*
                             [4,2,5,7]
                             [0,1,1,1]
                             2
                          */
-//                        CommonUtils.create("[4,2,5,7]"),
-//                        CommonUtils.create("[0,1,1,1]"),
+//                        CommonUtils.createInt1a("[4,2,5,7]"),
+//                        CommonUtils.createInt1a("[0,1,1,1]"),
 //                        2
                         /*
                             [10,1,7]
                             [0,0,0]
                             2
                          */
-                        CommonUtils.create("[10,1,7]"),
-                        CommonUtils.create("[0,0,0]"),
+                        CommonUtils.createInt1a("[10,1,7]"),
+                        CommonUtils.createInt1a("[0,0,0]"),
                         2
                 ));
     }
