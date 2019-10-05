@@ -6,10 +6,12 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        CommonUtils.show(new Solution2().nextGreaterElements(
+        CommonUtils.show(new Solution3().nextGreaterElements(
 //                CommonUtils.createInt1a("[1,2,1]")
-                CommonUtils.createInt1a("[5,4,3,2,1]")
+//                CommonUtils.createInt1a("[5,4,3,2,1]")
+//                CommonUtils.createInt1a("[1,1,1,1,1,1]")
 //                CommonUtils.createInt1a("[1,2,3,4,3]")
+                CommonUtils.createInt1a("[1,2,3,2,1]")
         ));
     }
 }
@@ -42,6 +44,7 @@ class Solution {
     }
 }
 
+// 运行时间还可以，但不是最优解
 class Solution2 {
     public int[] nextGreaterElements(int[] nums) {
         if (nums == null || nums.length == 0) return nums;
@@ -87,5 +90,42 @@ class Solution2 {
         }
 
         return result;
+    }
+}
+
+@SuppressWarnings("all")
+class Solution3 {
+    public int[] nextGreaterElements(int[] nums) {
+        if (nums == null || nums.length == 0) return nums;
+
+        int len = nums.length;
+
+        int[] nums2 = new int[len * 2];
+        System.arraycopy(nums, 0, nums2, 0, len);
+        System.arraycopy(nums, 0, nums2, len, len);
+
+        Deque<Tuple> stack = new ArrayDeque<>();
+
+        int[] result = new int[nums.length];
+        Arrays.fill(result, -1);
+        for (int i = 0; i < nums2.length; i++) {
+            while (stack.size() > 0 && stack.peek().num < nums2[i]) {
+                Tuple tuple = stack.pop();
+                result[tuple.idx % len] = nums2[i];
+            }
+            stack.push(new Tuple(nums2[i], i));
+        }
+
+        return result;
+    }
+
+    private static class Tuple {
+        int num;
+        int idx;
+
+        public Tuple(int num, int idx) {
+            this.num = num;
+            this.idx = idx;
+        }
     }
 }
