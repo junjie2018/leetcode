@@ -161,4 +161,27 @@ public class CommonUtils {
         }
         return lists;
     }
+
+    public static TreeNode createTreeNode(String input) {
+        input = input.substring(1, input.length() - 1);
+
+        String[] split = input.split(",");
+
+        TreeNode[] treeNodes = new TreeNode[split.length];
+
+        for (int i = 0; i < split.length; i++) {
+            if (!"null".equals(split[i])) {
+                treeNodes[i] = new TreeNode(Integer.valueOf(split[i]));
+            }
+        }
+
+        for (int i = 0; i < treeNodes.length; i++) {
+            if (treeNodes[i] != null) {
+                if (2 * i + 1 < treeNodes.length) treeNodes[i].left = treeNodes[2 * i + 1];
+                if (2 * i + 2 < treeNodes.length) treeNodes[i].right = treeNodes[2 * i + 2];
+            }
+        }
+
+        return treeNodes[0];
+    }
 }
