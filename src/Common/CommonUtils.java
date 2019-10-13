@@ -97,6 +97,7 @@ public class CommonUtils {
         String[] inputStrs = input.split(",");
         String[] result = new String[inputStrs.length];
         for (int i = 0; i < inputStrs.length; i++) {
+            inputStrs[i] = inputStrs[i].trim();
             result[i] = inputStrs[i].substring(1, inputStrs[i].length() - 1);
         }
         return result;
