@@ -8,6 +8,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CommonUtils {
+
+    private static Pattern outer = Pattern.compile("^\\[(.*)\\]$");
+    private static Pattern inner = Pattern.compile("(\\[[^\\]]*\\])*,?");
+
     public static void show(ListNode head) {
         while (head != null) {
             System.out.print(head.val + " ");
@@ -24,8 +28,11 @@ public class CommonUtils {
     public static void show(boolean[][] arrays) {
         for (boolean[] inner : arrays) {
             for (boolean val : inner) {
-                if (val) System.out.printf("%2d", 1);
-                else System.out.printf("%2d", 0);
+                if (val) {
+                    System.out.printf("%2d", 1);
+                } else {
+                    System.out.printf("%2d", 0);
+                }
             }
             System.out.println();
         }
@@ -41,9 +48,10 @@ public class CommonUtils {
 
 
     // [1,2,3]
-    public static int[] createInt1a(String input) {
+    public static int[] createIntArrayFromString(String input) {
         input = input.replace('[', ' ');
         input = input.replace(']', ' ');
+
         String[] nums = input.split(",");
 
         int[] result = new int[nums.length];
@@ -53,10 +61,10 @@ public class CommonUtils {
         return result;
     }
 
+
     // [[1,2,3],[1,2,3],[1,2,3]]
     public static int[][] createInt2a(String input) {
-        Pattern outer = Pattern.compile("^\\[(.*)\\]$");
-        Pattern inner = Pattern.compile("(\\[[^\\]]*\\])*,?");
+
 
         Matcher outMatcher = outer.matcher(input);
 
@@ -67,7 +75,9 @@ public class CommonUtils {
             Matcher innerMatcher = inner.matcher(outerStr);
             while (innerMatcher.find()) {
                 String innerStr = innerMatcher.group(1);
-                if (innerStr != null) tmpResult[idx++] = createInt1a(innerStr);
+                if (innerStr != null) {
+                    tmpResult[idx++] = createIntArrayFromString(innerStr);
+                }
             }
         }
 
@@ -75,7 +85,6 @@ public class CommonUtils {
     }
 
     // ['a','b','c']
-    // ["a","b","c"]
     public static char[] createChar1a(String input) {
         input = input.replace('[', ' ');
         input = input.replace(']', ' ');
@@ -178,8 +187,12 @@ public class CommonUtils {
 
         for (int i = 0; i < treeNodes.length; i++) {
             if (treeNodes[i] != null) {
-                if (2 * i + 1 < treeNodes.length) treeNodes[i].left = treeNodes[2 * i + 1];
-                if (2 * i + 2 < treeNodes.length) treeNodes[i].right = treeNodes[2 * i + 2];
+                if (2 * i + 1 < treeNodes.length) {
+                    treeNodes[i].left = treeNodes[2 * i + 1];
+                }
+                if (2 * i + 2 < treeNodes.length) {
+                    treeNodes[i].right = treeNodes[2 * i + 2];
+                }
             }
         }
 
