@@ -7,6 +7,7 @@ public class T0002 {
     }
 
     class Solution {
+        // 没有难度，需要掌握的是加法运算规则
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             int value, c = 0; // 值与进位
 
